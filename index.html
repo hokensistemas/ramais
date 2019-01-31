@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Bootstrap 4, from LayoutIt!</title>
+		
+		<meta name="description" content="Source code generated using layoutit.com">
+		<meta name="author" content="LayoutIt!">
+		
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+
+	</head>
+	<body>
+	
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<p>
+						<h3 style="text-align: center;">
+							Lista de Ramais Hoken
+						</h3>
+					</p>
+					<br />
+					<table class="table" id="tabelaramais">
+						<thead>
+							<tr>
+								<th onclick="sortTable(0)" style="cursor:pointer">
+									Ramal
+								</th>
+								<th onclick="sortTable(1)" style="cursor:pointer">
+									Colaborador/Local
+								</th>
+								<th onclick="sortTable(2)" style="cursor:pointer">
+									Grupo
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>62617</td><td>Bruno Ribeiro</td><td>TI</td></tr>
+							<tr><td>62618</td><td>Murilo Cecchini</td><td>TI</td></tr>
+							<tr><td>62614</td><td>Renato Ribas</td><td>TI</td></tr>
+							<tr><td>62619</td><td>Vinicius Frassatto</td><td>Financeiro</td></tr>
+							<tr><td>62613</td><td>Cátia Luz</td><td>Controladoria</td></tr>
+						</tbody>
+					</table>
+					<br />
+					<div style="text-align: center">
+						<img style="" alt="Bootstrap Image Preview" src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			function sortTable(n) {
+				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+				table = document.getElementById("tabelaramais");
+				switching = true;
+				// Set the sorting direction to ascending:
+				dir = "asc";
+				/* Make a loop that will continue until
+							no switching has been done: */
+				while (switching) {
+					// Start by saying: no switching is done:
+					switching = false;
+					rows = table.rows;
+					/* Loop through all table rows (except the
+							first, which contains table headers): */
+					for (i = 1; i < (rows.length - 1); i++) {
+						// Start by saying there should be no switching:
+						shouldSwitch = false;
+						/* Get the two elements you want to compare,
+							  one from current row and one from the next: */
+						x = rows[i].getElementsByTagName("TD")[n];
+						y = rows[i + 1].getElementsByTagName("TD")[n];
+						/* Check if the two rows should switch place,
+							  based on the direction, asc or desc: */
+						if (dir == "asc") {
+							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+								// If so, mark as a switch and break the loop:
+								shouldSwitch = true;
+								break;
+							}
+						} else if (dir == "desc") {
+							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+								// If so, mark as a switch and break the loop:
+								shouldSwitch = true;
+								break;
+							}
+						}
+					}
+					if (shouldSwitch) {
+						/* If a switch has been marked, make the switch
+							  and mark that a switch has been done: */
+						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+						switching = true;
+						// Each time a switch is done, increase this count by 1:
+						switchcount++;
+					} else {
+						/* If no switching has been done AND the direction is "asc",
+							  set the direction to "desc" and run the while loop again. */
+						if (switchcount == 0 && dir == "asc") {
+							dir = "desc";
+							switching = true;
+						}
+					}
+				}
+			}
+		</script>
+		<script>
+			function CopyOnClick() {
+				/* Get the text field */
+				var copyText = document.getElementById("td");
+				
+				/* Select the text field */
+				copyText.select();
+				
+				/* Copy the text inside the text field */
+				document.execCommand("copy");
+				
+				/* Alert the copied text */
+				alert("Copied the text: " + copyText.value);
+			}
+		</script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/scripts.js"></script>
+	</body>
+</html>
