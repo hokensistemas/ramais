@@ -16,3 +16,36 @@ table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
 	bottom: .5em;
 }
+
+.table-striped tbody tr.highlight:nth-child(odd) td {
+    background-color: rgba(165, 239, 135, 1);
+	/*font-weight: bold;*/
+}
+
+.table-striped tbody tr.highlight:nth-child(even) td {
+    background-color: rgba(165, 239, 135, 0.5);
+	/*font-weight: bold;*/
+}
+
+#inputProcura {
+  background-image: url('../img/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+.thead-dark {
+	background-color: rgba(60, 63, 66, 1);
+	color: #fff;
+	border-color: #32383e;
+}
+
+.tfoot-dark {
+	background-color: rgba(60, 63, 66, 0.8);
+	color: #fff;
+	border-color: #32383e;
+}

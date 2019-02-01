@@ -25,11 +25,16 @@
 							Lista de Ramais Hoken
 						</h3>
 					</p>
-					<br />
-					<table class="table table-striped table-hover table-sm order-column" id="tabelaramais">
-						<thead>
+					
+					
+					<input type="text" id="inputProcura" onkeyup="procuraTabela()" placeholder="Procurar..." autofocus>
+					<i class="fa fa-search" aria-hidden="true"></i>
+					
+					
+					<table id="tableRamais" class="table table-striped table-hover order-column">
+						<thead class="thead-dark">
 							<tr>
-								<th onload="sortTable(0)" onclick="sortTable(0)" style="cursor:pointer" class="sorting">
+								<th onclick="sortTable(0)" style="cursor:pointer" class="sorting">
 									Colaborador/Local
 									<i class="fa fa-sort" aria-hidden="true"></i>
 								</th>
@@ -204,6 +209,11 @@
 <!-- FIM COLAR AQUI OS RAMAIS -->
 
 						</tbody>
+						
+						<tfoot class="tfoot-dark">
+							<tr><td colspan="3">Data de Atualização: 31/01/2019</td></tr>
+						</tfoot>
+						
 					</table>
 					<br />
 					<div style="text-align: center">
@@ -213,76 +223,10 @@
 				</div>
 			</div>
 		</div>
-		<script>
-			function sortTable(n) {
-				var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-				table = document.getElementById("tabelaramais");
-				switching = true;
-				// Set the sorting direction to ascending:
-				dir = "asc";
-				/* Make a loop that will continue until
-							no switching has been done: */
-				while (switching) {
-					// Start by saying: no switching is done:
-					switching = false;
-					rows = table.rows;
-					/* Loop through all table rows (except the
-							first, which contains table headers): */
-					for (i = 1; i < (rows.length - 1); i++) {
-						// Start by saying there should be no switching:
-						shouldSwitch = false;
-						/* Get the two elements you want to compare,
-							  one from current row and one from the next: */
-						x = rows[i].getElementsByTagName("TD")[n];
-						y = rows[i + 1].getElementsByTagName("TD")[n];
-						/* Check if the two rows should switch place,
-							  based on the direction, asc or desc: */
-						if (dir == "asc") {
-							if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-								// If so, mark as a switch and break the loop:
-								shouldSwitch = true;
-								break;
-							}
-						} else if (dir == "desc") {
-							if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-								// If so, mark as a switch and break the loop:
-								shouldSwitch = true;
-								break;
-							}
-						}
-					}
-					if (shouldSwitch) {
-						/* If a switch has been marked, make the switch
-							  and mark that a switch has been done: */
-						rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-						switching = true;
-						// Each time a switch is done, increase this count by 1:
-						switchcount++;
-					} else {
-						/* If no switching has been done AND the direction is "asc",
-							  set the direction to "desc" and run the while loop again. */
-						if (switchcount == 0 && dir == "asc") {
-							dir = "desc";
-							switching = true;
-						}
-					}
-				}
-			}
-		</script>
-		<script>
-			function CopyOnClick() {
-				/* Get the text field */
-				var copyText = document.getElementById("td");
-				/* Select the text field */
-				copyText.select();
-				/* Copy the text inside the text field */
-				document.execCommand("copy");
-				/* Alert the copied text */
-				alert("Copied the text: " + copyText.value);
-			}
-		</script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/scripts.js"></script>
+		<script src="js/.js"></script>
+		<script src="js/jquery-3.3.1.js"></script>
 	</body>
 </html>
