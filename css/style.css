@@ -1,5 +1,20 @@
 # Empty CSS file for your own CSS
 
+.div-interna {
+	margin: auto;
+}
+
+.bg-dark {
+	background-color: #3c3f42;
+	color: white
+}
+
+.div-menu {
+	padding-top: 7.5px;
+	padding-bottom: 7.5px;
+	margin-bottom: 15px;
+}
+
 .table th {
 	cursor: pointer !important;
 }
@@ -27,17 +42,6 @@ table.dataTable thead .sorting_desc_disabled:before {
 	/*font-weight: bold;*/
 }
 
-#inputProcura {
-  background-image: url('../img/searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 100%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 12px; /* Add some space below the input */
-}
-
 .thead-dark {
 	background-color: rgba(60, 63, 66, 1);
 	color: #fff;
@@ -48,4 +52,15 @@ table.dataTable thead .sorting_desc_disabled:before {
 	background-color: rgba(60, 63, 66, 0.8);
 	color: #fff;
 	border-color: #32383e;
+}
+
+#inputProcura {
+	background-image: url('../img/searchicon.png'); /* Add a search icon to input */
+	background-position: 10px 12px; /* Position the search icon */
+	background-repeat: no-repeat; /* Do not repeat the icon image */
+	width: 100%; /* Full-width */
+	font-size: 16px; /* Increase font-size */
+	padding: 12px 20px 12px 40px; /* Add some padding */
+	border: 1px solid #ddd; /* Add a grey border */
+	/*margin-bottom: 12px; /* Add some space below the input */
 }

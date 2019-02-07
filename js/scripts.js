@@ -1,5 +1,6 @@
 // Empty JS for your own code to be here
 
+// Ordenar tabela
 function sortTable(n) {
 	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 	table = document.getElementById("tableRamais");
@@ -55,36 +56,33 @@ function sortTable(n) {
 	}
 }
 
-function CopyOnClick() {
-	/* Get the text field */
-	var copyText = document.getElementById("td");
-	/* Select the text field */
-	copyText.select();
-	/* Copy the text inside the text field */
-	document.execCommand("copy");
-	/* Alert the copied text */
-	alert("Copied the text: " + copyText.value);
-}
-
+// Destacar linha
 $(document).ready(function () {
     $('tr').click(function () {
         $(this).toggleClass("highlight");
     });
 });
 
+// Filtrar tabela
 $(document).ready(function(){
   $("#inputProcura").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#tableRamais tbody tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
-	
-	//$("#report-area tr:contains(value)").addClass('my-class');
-	$("#tableRamais tr:contains(value)").removeClass("table-striped");
-	$("#tableRamais tr:contains(value)").addClass("table-striped");
-	//$("#tableRamais").addClass("table-striped");
+	//$("#tableRamais tbody tr:visible").toggleClass("table-striped");
+	var stripe=function(){
+		$('#tableRamais table').removeClass('table-striped');
+		$('#tableRamais tbody tr').filter(':visible').filter(':odd').addClass('table-striped');
+	};
   });
 });
+
+// Reaplicar listras na tabela filtrada
+$(document).ready(function(){
+	$("#tableRamais tbody tr:visible").toggleClass("table-striped");
+});
+
 
 /*
 $(document).ready(
@@ -97,6 +95,7 @@ $(document).ready(
 	}
 );
 */
+
 /*
 $(document).ready(
 	function () {
